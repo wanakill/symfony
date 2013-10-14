@@ -1,0 +1,116 @@
+<?php
+
+namespace BBM\Bundle\FrontendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Notification
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Notification
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     *
+     * @ORM\Column(name="from_user")
+     * @ORM\ManyToOne(targetEntity="BBM\Bundle\FrontendBundle\Entity\User")
+    */
+    protected $fromUser;
+
+    /**
+     *
+     * @ORM\Column(name="to_user")
+     * @ORM\ManyToOne(targetEntity="BBM\Bundle\FrontendBundle\Entity\User")
+    */
+    protected $toUser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    protected $date;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="viewed", type="boolean")
+     */
+    protected $viewed;
+
+    /**
+     * @var string $type
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    protected $type;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Notification
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set viewed
+     *
+     * @param boolean $viewed
+     * @return Notification
+     */
+    public function setViewed($viewed)
+    {
+        $this->viewed = $viewed;
+    
+        return $this;
+    }
+
+    /**
+     * Get viewed
+     *
+     * @return boolean 
+     */
+    public function getViewed()
+    {
+        return $this->viewed;
+    }
+}

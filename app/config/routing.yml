@@ -1,0 +1,4 @@
+bbm_frontend:
+    resource: "@BBMFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
